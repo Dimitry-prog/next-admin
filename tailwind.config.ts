@@ -13,7 +13,8 @@ const config: Config = {
       'bg-light': "#182237",
       white: '#fff',
       'white-dark': "#b7bac1",
-      'bg-hover': '#2e374a'
+      'bg-hover': '#2e374a',
+      'transparent': 'transparent'
     },
     extend: {
       backgroundImage: {
