@@ -4,6 +4,6 @@
 
 @layer base {
     body {
-        @apply h-screen bg-bg text-white
+        @apply h-screen bg-bg text-white text-sm
     }
 }

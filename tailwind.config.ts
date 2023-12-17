@@ -12,7 +12,8 @@ const config: Config = {
       bg: '#151c2c',
       'bg-light': "#182237",
       white: '#fff',
-      'white-dark': "#b7bac1"
+      'white-dark': "#b7bac1",
+      'bg-hover': '#2e374a'
     },
     extend: {
       backgroundImage: {
@@ -22,6 +23,9 @@ const config: Config = {
       },
       flex: {
         '4': '4 0 0%',
+      },
+      fontSize: {
+        xs: ['12px', '18px']
       }
     },
   },
