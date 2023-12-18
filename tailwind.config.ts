@@ -16,6 +16,7 @@ const config: Config = {
       'bg-hover': '#2e374a',
       'transparent': 'transparent',
       green: '#32CD32',
+      'green-dark': '#008080',
       red: '#d21f3c',
       brown: '#f7cb7375',
       purple: '#5d57c9',
