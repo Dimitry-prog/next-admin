@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import DashboardSideBar from "@/features/dashboard/components/sidebar";
 import DashboardNavbar from "@/features/dashboard/components/navbar";
+import DashboardFooter from "@/features/dashboard/components/footer";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -10,6 +11,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <DashboardNavbar/>
         {children}
       </section>
+      <DashboardFooter/>
     </main>
   );
 };
