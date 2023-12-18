@@ -4,13 +4,13 @@ import DashboardNavbar from "@/features/dashboard/components/navbar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className='flex '>
+    <main className='flex'>
       <DashboardSideBar/>
-      <div className='p-5 flex-4'>
+      <section className='p-5 flex-4'>
         <DashboardNavbar/>
         {children}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

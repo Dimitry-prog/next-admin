@@ -20,7 +20,7 @@ const DashboardSideBar = () => {
   }, []);
 
   return (
-    <div className='p-5 flex-1 bg-bg-light'>
+    <aside className='p-5 flex-1 bg-bg-light'>
       <SidebarUserInfo/>
       {menuItems}
       <button
@@ -30,7 +30,7 @@ const DashboardSideBar = () => {
         <MdLogout/>
         Logout
       </button>
-    </div>
+    </aside>
   );
 };
 
