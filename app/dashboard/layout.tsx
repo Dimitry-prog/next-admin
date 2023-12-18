@@ -5,14 +5,16 @@ import DashboardFooter from "@/features/dashboard/components/footer";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <main className='flex'>
-      <DashboardSideBar/>
-      <section className='p-5 flex-4'>
-        <DashboardNavbar/>
-        {children}
-      </section>
+    <>
+      <main className='flex'>
+        <DashboardSideBar/>
+        <section className='p-5 flex-4'>
+          <DashboardNavbar/>
+          {children}
+        </section>
+      </main>
       <DashboardFooter/>
-    </main>
+    </>
   );
 };
 

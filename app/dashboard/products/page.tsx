@@ -1,8 +1,8 @@
+import Products from "@/features/dashboard/products";
+
 const ProductsPage = () => {
   return (
-    <div>
-      ProductsPage
-    </div>
+    <Products/>
   );
 };
 

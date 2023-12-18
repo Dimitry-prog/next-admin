@@ -1,8 +1,8 @@
+import Users from "@/features/dashboard/users";
+
 const UsersPage = () => {
   return (
-    <div>
-      UsersPage
-    </div>
+    <Users/>
   );
 };
 
