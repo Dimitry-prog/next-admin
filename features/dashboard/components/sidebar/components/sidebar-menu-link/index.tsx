@@ -3,7 +3,7 @@
 import { SidebarMenuItemType } from "@/features/dashboard/components/sidebar/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/app/shared/libs/cn";
+import { cn } from "@/shared/libs/cn";
 
 type SidebarMenuItemProps = {
   item: SidebarMenuItemType

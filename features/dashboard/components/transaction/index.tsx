@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { cn } from "@/app/shared/libs/cn";
+import { cn } from "@/shared/libs/cn";
 
 const Transaction = () => {
   return (

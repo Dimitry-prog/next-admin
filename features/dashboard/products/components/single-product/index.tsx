@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const SingleUser = () => {
+const SingleProduct = () => {
   return (
     <div className='mt-5 flex gap-5'>
       <div className='max-h-72 p-5 flex-1 flex flex-col gap-3 rounded-md bg-bg-light'>
@@ -8,58 +8,57 @@ const SingleUser = () => {
         <h3 className='text-xl text-center font-bold'>Dimitry</h3>
       </div>
       <form className='w-full p-5 flex-3 flex flex-col gap-2.5 justify-between rounded-md bg-bg-light'>
-        <label>Name</label>
+        <label>Title</label>
         <input
-          name='name'
+          name='title'
           type="text"
-          placeholder='Name'
+          placeholder='Title'
           className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none'
         />
-        <label>Email</label>
+        <label>Price</label>
         <input
-          name='email'
-          type="email"
-          placeholder='Email'
+          name='price'
+          type="number"
+          placeholder='Price'
           className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none'
         />
-        <label>Password</label>
+        <label>Stock</label>
         <input
-          name='password'
-          type="password"
-          placeholder='Password'
+          name='stock'
+          type="number"
+          placeholder='Stock'
           className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none'
         />
-        <label>Phone</label>
+        <label>Color</label>
         <input
-          name='phone'
-          type="tel"
-          placeholder='Phone'
+          name='color'
+          type="text"
+          placeholder='Color'
           className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none'
         />
-        <label>isAdmin?</label>
+        <label>Size</label>
+        <input
+          name='size'
+          type="text"
+          placeholder='Size'
+          className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none'
+        />
+        <label>Category</label>
         <select
-          name="isAdmin"
-          id="isAdmin"
+          name="category"
+          id="category"
           className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none'
         >
-          <option value="true">Yes</option>
-          <option value="false">No</option>
+          <option value="">Choose a Category</option>
+          <option value="phone">Phone</option>
+          <option value="car">Car</option>
         </select>
-        <label>isActive?</label>
-        <select
-          name="isActive"
-          id="isActive"
-          className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none'
-        >
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
-        <label>Address</label>
+        <label>Description</label>
         <textarea
-          name="address"
-          id="address"
+          name="description"
+          id="description"
           rows={16}
-          placeholder='Address'
+          placeholder='Description'
           className='w-full p-8 mb-3 border-2 border-bg-hover rounded bg-transparent outline-none resize-none'
         />
         <button type='submit' className='w-full p-8 rounded bg-green-dark'>Update</button>
@@ -68,4 +67,4 @@ const SingleUser = () => {
   );
 };
 
-export default SingleUser;
+export default SingleProduct;
