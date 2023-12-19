@@ -1,8 +1,8 @@
+import Login from "@/features/login";
+
 const LoginPage = () => {
   return (
-    <div>
-      LoginPage
-    </div>
+    <Login/>
   );
 };
 
