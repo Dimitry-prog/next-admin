@@ -1,8 +1,11 @@
 import Users from "@/features/dashboard/users";
+import { fetchedUsers } from "@/shared/libs/data";
 
-const UsersPage = () => {
+const UsersPage = async () => {
+  const users = await fetchedUsers();
+
   return (
-    <Users/>
+    <Users users={users}/>
   );
 };
 
