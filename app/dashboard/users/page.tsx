@@ -1,8 +1,13 @@
 import Users from "@/features/dashboard/users";
-import { fetchedUsers } from "@/shared/libs/data";
+import { fetchedUsers } from "@/features/dashboard/users/services";
 
-const UsersPage = async () => {
-  const users = await fetchedUsers();
+type UsersPageProps = {
+  searchParams: { [key: string]: string | undefined }
+}
+
+const UsersPage = async ({ searchParams }: UsersPageProps) => {
+  const query = searchParams.q || '';
+  const users = await fetchedUsers(query);
 
   return (
     <Users users={users}/>

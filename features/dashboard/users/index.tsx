@@ -18,7 +18,7 @@ const Users = ({ users }: UsersProps) => {
       </div>
 
       {!!users && <h2 className='mt-5 text-xl font-bold text-center'>Users not found</h2>}
-      {users.length > 0 && (
+      {users?.length > 0 && (
         <table className='w-full my-5'>
           <thead>
           <tr>
@@ -64,7 +64,7 @@ const Users = ({ users }: UsersProps) => {
           </tbody>
         </table>
       )}
-      {users.length > 0 && <DashboardPagination/>}
+      {users?.length > 0 && <DashboardPagination/>}
     </div>
   );
 };
