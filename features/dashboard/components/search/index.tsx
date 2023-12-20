@@ -15,6 +15,8 @@ const DashboardSearch = ({ placeholder }: DashboardSearchProps) => {
   const params = new URLSearchParams(searchParams);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    params.set('page', '1');
+
     if (!e.target.value) {
       params.delete('q');
     } else {

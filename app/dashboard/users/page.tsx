@@ -7,10 +7,11 @@ type UsersPageProps = {
 
 const UsersPage = async ({ searchParams }: UsersPageProps) => {
   const query = searchParams.q || '';
-  const users = await fetchedUsers(query);
+  const page = parseInt(searchParams.page || '1');
+  const { users, totalUsers } = await fetchedUsers(query, page);
 
   return (
-    <Users users={users}/>
+    <Users users={users} totalUsers={totalUsers}/>
   );
 };
 

@@ -1,20 +1,20 @@
 import prisma from "@/shared/libs/prismadb";
 import { ITEMS_PER_PAGE } from "@/features/dashboard/utils/constants";
 
-export const fetchedUsers = async (query: string, page: number) => {
+export const fetchedProducts = async (query: string, page: number) => {
 
   try {
-    const totalUsers = await prisma.user.count({
+    const totalProducts = await prisma.product.count({
       where: {
-        name: {
+        title: {
           contains: query,
           mode: 'insensitive'
         }
       }
     });
-    const users = await prisma.user.findMany({
+    const products = await prisma.product.findMany({
       where: {
-        name: {
+        title: {
           contains: query,
           mode: 'insensitive'
         }
@@ -23,15 +23,15 @@ export const fetchedUsers = async (query: string, page: number) => {
       skip: ITEMS_PER_PAGE * (page - 1)
     });
 
-    if (!users || users.length === 0) {
+    if (!products || products.length === 0) {
       return {
-        users: [],
-        totalUsers
+        products: [],
+        totalProducts
       }
     }
-    return { users, totalUsers };
+    return { products, totalProducts };
   } catch (e) {
     console.log(e);
-    throw new Error("Failed to fetch users!");
+    throw new Error("Failed to fetch products!");
   }
 }

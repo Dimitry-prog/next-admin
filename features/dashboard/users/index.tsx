@@ -6,9 +6,10 @@ import { UserType } from "@/features/dashboard/users/types";
 
 type UsersProps = {
   users: UserType[]
+  totalUsers: number
 }
 
-const Users = ({ users }: UsersProps) => {
+const Users = ({ users, totalUsers }: UsersProps) => {
 
   return (
     <div className='p-5 mt-5 rounded-md bg-bg-light'>
@@ -46,7 +47,7 @@ const Users = ({ users }: UsersProps) => {
                 </div>
               </td>
               <td className='p-2.5'>{user.email}</td>
-              <td className='p-2.5'>18.12.2023</td>
+              <td className='p-2.5'>{user.createdAt.toString().slice(4, 16)}</td>
               <td className='p-2.5'>{user.isAdmin ? "Admin" : "Client"}</td>
               <td className='p-2.5'>{user.isActive ? "active" : "passive"}</td>
               <td className='p-2.5'>
@@ -64,7 +65,7 @@ const Users = ({ users }: UsersProps) => {
           </tbody>
         </table>
       )}
-      {users?.length > 0 && <DashboardPagination/>}
+      {users?.length > 0 && <DashboardPagination total={totalUsers}/>}
     </div>
   );
 };
