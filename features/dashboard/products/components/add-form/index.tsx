@@ -1,6 +1,8 @@
+import { addProduct } from "@/features/dashboard/products/actions";
+
 const AddProduct = () => {
   return (
-    <form className='p-5 mt-5 flex flex-wrap justify-between rounded-md bg-bg-light'>
+    <form action={addProduct} className='p-5 mt-5 flex flex-wrap justify-between rounded-md bg-bg-light'>
       <input
         name='title'
         type="text"
@@ -35,9 +37,9 @@ const AddProduct = () => {
         className='w-[45%] p-8 mb-8 border-2 border-bg-hover rounded bg-transparent outline-none'
       />
       <input
-        name='size'
+        name='image'
         type="text"
-        placeholder='Size'
+        placeholder='Link to img'
         className='w-[45%] p-8 mb-8 border-2 border-bg-hover rounded bg-transparent outline-none'
       />
       <textarea

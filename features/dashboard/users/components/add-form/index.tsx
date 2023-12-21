@@ -1,6 +1,8 @@
+import { addUser } from "@/features/dashboard/users/actions";
+
 const AddUser = () => {
   return (
-    <form className='p-5 mt-5 flex flex-wrap justify-between rounded-md bg-bg-light'>
+    <form action={addUser} className='p-5 mt-5 flex flex-wrap justify-between rounded-md bg-bg-light'>
       <input
         name='name'
         type="text"
@@ -30,7 +32,7 @@ const AddUser = () => {
         id="isAdmin"
         className='w-[45%] p-8 mb-8 border-2 border-bg-hover rounded bg-transparent outline-none'
       >
-        <option value="false" selected>Is Admin?</option>
+        <option value="false">Is Admin?</option>
         <option value="true">Yes</option>
         <option value="false">No</option>
       </select>
@@ -39,7 +41,7 @@ const AddUser = () => {
         id="isActive"
         className='w-[45%] p-8 mb-8 border-2 border-bg-hover rounded bg-transparent outline-none'
       >
-        <option value="true" selected disabled>Is Active?</option>
+        <option value="true">Is Active?</option>
         <option value="true">Yes</option>
         <option value="false">No</option>
       </select>
