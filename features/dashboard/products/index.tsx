@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import DashboardPagination from "@/features/dashboard/components/pagination";
 import { ProductType } from "@/features/dashboard/products/types";
+import { deleteProduct } from "@/features/dashboard/products/actions";
 
 type ProductsProps = {
   products: ProductType[]
@@ -56,9 +57,12 @@ const Products = ({ products, totalProducts }: ProductsProps) => {
                   <Link href={`/dashboard/products/${product.id}`} className='px-2.5 py-1.5 rounded bg-green'>
                     View
                   </Link>
-                  <Link href='/' className='px-2.5 py-1.5 rounded bg-red'>
-                    Delete
-                  </Link>
+                  <form action={deleteProduct}>
+                    <input name='id' value={product.id} type='hidden'/>
+                    <button type='submit' className='px-2.5 py-1.5 rounded bg-red'>
+                      Delete
+                    </button>
+                  </form>
                 </div>
               </td>
             </tr>

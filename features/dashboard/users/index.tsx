@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import DashboardPagination from "@/features/dashboard/components/pagination";
 import { UserType } from "@/features/dashboard/users/types";
+import { deleteUser } from "@/features/dashboard/users/actions";
 
 type UsersProps = {
   users: UserType[]
@@ -55,9 +56,12 @@ const Users = ({ users, totalUsers }: UsersProps) => {
                   <Link href={`/dashboard/users/${user.id}`} className='px-2.5 py-1.5 rounded bg-green'>
                     View
                   </Link>
-                  <Link href='/' className='px-2.5 py-1.5 rounded bg-red'>
-                    Delete
-                  </Link>
+                  <form action={deleteUser}>
+                    <input name='id' value={user.id} type='hidden'/>
+                    <button type='submit' className='px-2.5 py-1.5 rounded bg-red'>
+                      Delete
+                    </button>
+                  </form>
                 </div>
               </td>
             </tr>

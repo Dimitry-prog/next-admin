@@ -40,3 +40,22 @@ export const addUser = async (formData: FormData) => {
   revalidatePath('/dashboard/users');
   redirect('/dashboard/users');
 }
+
+export const deleteUser = async (formData: FormData) => {
+  const {
+    id
+  } = Object.fromEntries(formData);
+
+  try {
+    await prisma.user.delete({
+      where: {
+        id: id as string
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    throw new Error('Failed to delete user');
+  }
+
+  revalidatePath('/dashboard/users');
+}
