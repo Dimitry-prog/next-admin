@@ -1,8 +1,17 @@
 import SingleUser from "@/features/dashboard/users/components/single-user";
+import { fetchedUser } from "@/features/dashboard/users/services";
 
-const UserPage = () => {
+type UserPageProps = {
+  params: {
+    userId: string
+  }
+}
+
+const UserPage = async ({ params }: UserPageProps) => {
+  const user = await fetchedUser(params.userId);
+
   return (
-    <SingleUser/>
+    <SingleUser user={user}/>
   );
 };
 

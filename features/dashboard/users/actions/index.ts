@@ -59,3 +59,45 @@ export const deleteUser = async (formData: FormData) => {
 
   revalidatePath('/dashboard/users');
 }
+
+export const updateUser = async (formData: FormData) => {
+  const {
+    id,
+    name,
+    phone,
+    address,
+    isAdmin,
+    isActive
+  } = Object.fromEntries(formData);
+
+  try {
+    const updateFields = {
+      name,
+      phone,
+      address,
+      isAdmin,
+      isActive
+    }
+    Object.keys(updateFields).forEach(key => (updateFields[key as keyof typeof updateFields] === '' || undefined) && delete updateFields[key as keyof typeof updateFields]);
+
+    await prisma.user.update({
+      where: {
+        id: id as string,
+      },
+      data: {
+        name: updateFields.name?.toString(),
+        phone: updateFields.phone?.toString(),
+        address: updateFields.address?.toString(),
+        isAdmin: updateFields.isAdmin === 'true',
+        isActive: updateFields.isActive === 'true',
+      }
+    })
+
+  } catch (e) {
+    console.log(e);
+    throw new Error('Failed to update user');
+  }
+
+  revalidatePath('/dashboard/users');
+  redirect('/dashboard/users');
+}

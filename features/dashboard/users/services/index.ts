@@ -35,3 +35,21 @@ export const fetchedUsers = async (query: string, page: number) => {
     throw new Error("Failed to fetch users!");
   }
 }
+
+export const fetchedUser = async (id: string) => {
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        id
+      }
+    })
+    if (!user) {
+      throw new Error("Failed to fetch user!");
+    }
+    return user;
+  } catch (e) {
+    console.log(e);
+    throw new Error("Failed to fetch user!");
+  }
+}

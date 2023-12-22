@@ -35,3 +35,21 @@ export const fetchedProducts = async (query: string, page: number) => {
     throw new Error("Failed to fetch products!");
   }
 }
+
+export const fetchedProduct = async (id: string) => {
+
+  try {
+    const product = await prisma.product.findUnique({
+      where: {
+        id
+      }
+    })
+    if (!product) {
+      throw new Error("Failed to fetch product!");
+    }
+    return product;
+  } catch (e) {
+    console.log(e);
+    throw new Error("Failed to fetch product!");
+  }
+}
