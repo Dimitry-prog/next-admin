@@ -1,7 +1,12 @@
+import { authenticate } from "@/features/login/actions";
+
 const Login = () => {
   return (
     <div className='w-full h-screen flex items-center justify-center'>
-      <form className='w-full max-w-xl p-5 flex flex-col justify-center gap-2.5 rounded-md bg-bg-light'>
+      <form
+        action={authenticate}
+        className='w-full max-w-xl p-5 flex flex-col justify-center gap-2.5 rounded-md bg-bg-light'
+      >
         <h1 className='text-xl font-bold text-center'>Login</h1>
         <label>Email</label>
         <input
