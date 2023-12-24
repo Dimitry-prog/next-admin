@@ -9,3 +9,15 @@ export type ProductType = {
   createdAt: Date
   updatedAt: Date
 }
+
+export type AddProductStateType = {
+  errors?: {
+    title?: string[],
+    description?: string[],
+    price?: string[],
+    color?: string[],
+    stock?: string[],
+    image?: string[],
+  }
+  message?: string
+}

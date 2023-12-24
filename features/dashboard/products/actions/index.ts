@@ -3,31 +3,35 @@
 import prisma from '@/shared/libs/prismadb'
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { AddProductStateType } from "@/features/dashboard/products/types";
+import { addProductSchema } from "@/features/dashboard/products/validation";
 
-export const addProduct = async (formData: FormData) => {
-  const {
-    title,
-    description,
-    image,
-    price,
-    color,
-    stock,
-  } = Object.fromEntries(formData);
+export const addProduct = async (prevState: AddProductStateType, formData: FormData) => {
+  const validatedFields = addProductSchema.safeParse({
+    title: formData.get('title'),
+    description: formData.get('description'),
+    image: formData.get('image'),
+    price: formData.get('price'),
+    color: formData.get('color'),
+    stock: formData.get('stock'),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create Product.',
+    };
+  }
 
   try {
     await prisma.product.create({
-      data: {
-        title: title?.toString(),
-        description: description?.toString(),
-        image: image?.toString(),
-        price: price?.toString(),
-        color: color?.toString(),
-        stock: stock?.toString(),
-      }
+      data: validatedFields.data
     });
   } catch (e) {
     console.log(e);
-    throw new Error('Failed to create new product');
+    return {
+      message: 'Database Error: Failed to Create Product.',
+    };
   }
 
   revalidatePath('/dashboard/products');

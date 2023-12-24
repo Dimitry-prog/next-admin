@@ -3,7 +3,9 @@
 import { signIn } from "@/shared/libs/auth";
 import { AuthError } from "next-auth";
 
-export const authenticate = async (formData: FormData) => {
+type StateType = string | undefined;
+
+export const authenticate = async (prevState: StateType, formData: FormData) => {
   try {
     await signIn('credentials', formData);
   } catch (e) {
